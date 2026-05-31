@@ -11,7 +11,7 @@ permissions:
   packages: write
 
 env:
-  IMAGE_NAME: alfian57/tugas-backend
+  IMAGE_NAME: alfian57/tugas-backend-api
   DATABASE_URL: mysql://user:password@localhost:3306/tugas_backend
 
 jobs:
