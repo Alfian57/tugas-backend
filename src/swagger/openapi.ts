@@ -1,5 +1,6 @@
 import path from "path";
 import swaggerJsdoc from "swagger-jsdoc";
+import { env } from "../config/env";
 
 export const swaggerSpec = swaggerJsdoc({
   definition: {
@@ -9,7 +10,7 @@ export const swaggerSpec = swaggerJsdoc({
       version: "1.0.0",
       description: "REST API sederhana untuk autentikasi dan CRUD data buah"
     },
-    servers: [{ url: "http://localhost:3000" }],
+    servers: [{ url: env.APP_URL }],
     components: {
       securitySchemes: {
         BearerAuth: {
@@ -59,5 +60,8 @@ export const swaggerSpec = swaggerJsdoc({
       }
     }
   },
-  apis: [path.join(process.cwd(), "src/routes/*.ts")]
+  apis: [
+    path.join(process.cwd(), "src/routes/*.ts"),
+    path.join(process.cwd(), "dist/routes/*.js")
+  ]
 });
