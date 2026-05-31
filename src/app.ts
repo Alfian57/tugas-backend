@@ -11,6 +11,10 @@ export function createApp() {
   app.use(cors());
   app.use(express.json());
 
+  app.get("/health", (_req, res) => {
+    res.json({ status: "ok" });
+  });
+
   app.use("/auth", authRouter);
   app.use("/fruits", fruitRouter);
   app.use("/", docsRouter);
